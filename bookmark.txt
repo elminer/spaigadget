@@ -1,0 +1,1 @@
+javascript:(function(){$.get("https://rawgit.com/elminer/spaigadget/master/spaitable.html",function(tableFile){$("#result_container").append(tableFile);});})();
