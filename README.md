@@ -7,7 +7,7 @@ This little bit of JavaScript and HTML adds Scooty Puff pricing to Evepraisal at
 
 ### Usage
 
-To use the gadget, just create a new bookmark by right-clicking your bookmark bar and selecting "Add Page..." in Chrome, or "New Bookmark" in Firefox.  Use whatever you'd like for the name, and copy-paste the following JS code into the URL or Location:
+To use the gadget, create a new bookmark by right-clicking your bookmark bar and selecting "Add Page..." in Chrome, or "New Bookmark" in Firefox.  Use whatever you'd like for the name, and copy-paste the following JS code into the URL or Location:
 
 ```
 javascript:(function(){$.get("https://rawgit.com/elminer/spaigadget/master/spaitable.html",function(tableFile){$("#result_container").append(tableFile);});})();
@@ -21,4 +21,4 @@ If you have any questions or suggestions you can convo or mail *Darvin Gack* in 
 
 ### Screenshot
 
-Here's a [screenshot](http://imgur.com/IFBey0s).
+![screenshot](http://i.imgur.com/IFBey0s.png).
