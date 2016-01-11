@@ -21,4 +21,4 @@ If you have any questions or suggestions you can convo or mail *Darvin Gack* in 
 
 ### Screenshot
 
-![screenshot](http://i.imgur.com/IFBey0s.png).
+![screenshot](http://i.imgur.com/IFBey0s.png)
