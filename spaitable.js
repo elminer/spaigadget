@@ -353,7 +353,7 @@ $(function() {
     var totalVolume = $.shipmentVolume() - totalunPackagedVolume + totalPackagedVolume;
     $('th :nth-child(5)').html($.formatNumberToString(totalVolume) + "m<sup>3</sup>");
     //Update the warning
-    $('#ships-warning h4').html("PACKAGED SHIPS");
+    $('#ships-warning h4').text("PACKAGED SHIPS");
     //Hide the button
     $('#package-toggle').hide();
 
