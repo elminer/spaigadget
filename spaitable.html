@@ -1,10 +1,15 @@
-<script type="text/javascript" src="https://rawgit.com/elminer/spaigadget/master/spaitable.js"> </script>
-
+<script type="text/javascript" src="https://rawgit.com/elminer/spaigadget/pkgdships/spaitable.js"> </script>
 <div>
   <table class="table table-striped">
     <thead>
+      <tr class="header" id="ships-warning" style="display: none">
+        <th colspan="4" style="text-align: center"><h4 style="color:yellow">PACKAGED SHIPS</h4></th>
+      </tr>
       <tr>
-        <th class="header">Route</th>
+        <th class="header">
+          Route 
+          <button id="package-toggle" class="btn btn-small" style="display: none">Use Pkg'd Ship Volumes</button>
+        </th>
         <th class="header">Reward<br/>No Collat.</th>
         <th class="header">Reward<br/>Sell Amt. Collat.</th>
         <th class="header">Reward<br/>Buy Amt. Collat.</th>
