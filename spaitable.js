@@ -452,7 +452,7 @@ $(function() {
   $.A2_COST = 250;
   $.UVHO_COST = 350;
   $.LOCAL_COST = 100;
-  $.OKA_COST = 350;
+  $.OKA_COST = 300;
 
   // Put the commas back when we click on something else
   $.formatNumber = function (str) { 
