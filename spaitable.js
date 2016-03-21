@@ -452,7 +452,6 @@ $(function() {
   $.A2_COST = 250;
   $.UVHO_COST = 350;
   $.LOCAL_COST = 100;
-  $.OKA_COST = 300;
 
   // Put the commas back when we click on something else
   $.formatNumber = function (str) { 
@@ -542,10 +541,6 @@ $(function() {
     $('#localNoCollatReward').text($.formatNumberToString(volume * $.LOCAL_COST));
     $('#localSellReward').text($.formatNumberToString(volume * $.LOCAL_COST + sellCollat));
     $('#localBuyReward').text($.formatNumberToString(volume * $.LOCAL_COST + buyCollat));
-
-    $('#okaNoCollatReward').text($.formatNumberToString(volume * $.OKA_COST));
-    $('#okaSellReward').text($.formatNumberToString(volume * $.OKA_COST + sellCollat));
-    $('#okaBuyReward').text($.formatNumberToString(volume * $.OKA_COST + buyCollat));    
 
     $('.sellAmount').each(function(i, val){
       $(val).text($.formatNumberToString(sellValue));
