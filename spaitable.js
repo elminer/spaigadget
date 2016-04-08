@@ -540,17 +540,17 @@ $(function() {
     $('#uvhoSellReward').text($.formatNumberToString(volume * $.UVHO_COST + sellCollat));
     $('#uvhoBuyReward').text($.formatNumberToString(volume * $.UVHO_COST + buyCollat));
 
-    $('#localNoCollatReward').text($.formatNumberToString(volume * $.JITA_COST));
-    $('#localSellReward').text($.formatNumberToString(volume * $.JITA_COST + sellCollat));
-    $('#localBuyReward').text($.formatNumberToString(volume * $.JITA_COST + buyCollat));
+    $('#localNoCollatReward').text($.formatNumberToString(volume * $.LOCAL_COST));
+    $('#localSellReward').text($.formatNumberToString(volume * $.LOCAL_COST + sellCollat));
+    $('#localBuyReward').text($.formatNumberToString(volume * $.LOCAL_COST + buyCollat));
 
-    $('#jitaNoCollatReward').text($.formatNumberToString(volume * $.OKA_COST));
-    $('#jitaSellReward').text($.formatNumberToString(volume * $.OKA_COST + sellCollat));
-    $('#jitaBuyReward').text($.formatNumberToString(volume * $.OKA_COST + buyCollat));
+    $('#jitaNoCollatReward').text($.formatNumberToString(volume * $.JITA_COST));
+    $('#jitaSellReward').text($.formatNumberToString(volume * $.JITA_COST + sellCollat));
+    $('#jitaBuyReward').text($.formatNumberToString(volume * $.JITA_COST + buyCollat));
 
-    $('#okaNoCollatReward').text($.formatNumberToString(volume * $.UVHO_COST));
-    $('#okaSellReward').text($.formatNumberToString(volume * $.UVHO_COST + sellCollat));
-    $('#okaBuyReward').text($.formatNumberToString(volume * $.UVHO_COST + buyCollat));
+    $('#okaNoCollatReward').text($.formatNumberToString(volume * $.OKA_COST));
+    $('#okaSellReward').text($.formatNumberToString(volume * $.OKA_COST + sellCollat));
+    $('#okaBuyReward').text($.formatNumberToString(volume * $.OKA_COST + buyCollat));
 
     $('.sellAmount').each(function(i, val){
       $(val).text($.formatNumberToString(sellValue));
