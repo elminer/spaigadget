@@ -450,8 +450,10 @@ $(function() {
   };
   $.COLLAT_AMOUNT = 0.02;
   $.A2_COST = 250;
-  $.UVHO_COST = 350;
-  $.LOCAL_COST = 100;
+  $.UVHO_COST = 300;
+  $.JITA_COST = 300;
+  $.OKA_COST = 200;
+  $.LOCAL_COST = 50;
 
   // Put the commas back when we click on something else
   $.formatNumber = function (str) { 
@@ -538,9 +540,17 @@ $(function() {
     $('#uvhoSellReward').text($.formatNumberToString(volume * $.UVHO_COST + sellCollat));
     $('#uvhoBuyReward').text($.formatNumberToString(volume * $.UVHO_COST + buyCollat));
 
-    $('#localNoCollatReward').text($.formatNumberToString(volume * $.LOCAL_COST));
-    $('#localSellReward').text($.formatNumberToString(volume * $.LOCAL_COST + sellCollat));
-    $('#localBuyReward').text($.formatNumberToString(volume * $.LOCAL_COST + buyCollat));
+    $('#localNoCollatReward').text($.formatNumberToString(volume * $.JITA_COST));
+    $('#localSellReward').text($.formatNumberToString(volume * $.JITA_COST + sellCollat));
+    $('#localBuyReward').text($.formatNumberToString(volume * $.JITA_COST + buyCollat));
+
+    $('#jitaNoCollatReward').text($.formatNumberToString(volume * $.OKA_COST));
+    $('#jitaSellReward').text($.formatNumberToString(volume * $.OKA_COST + sellCollat));
+    $('#jitaBuyReward').text($.formatNumberToString(volume * $.OKA_COST + buyCollat));
+
+    $('#okaNoCollatReward').text($.formatNumberToString(volume * $.UVHO_COST));
+    $('#okaSellReward').text($.formatNumberToString(volume * $.UVHO_COST + sellCollat));
+    $('#okaBuyReward').text($.formatNumberToString(volume * $.UVHO_COST + buyCollat));
 
     $('.sellAmount').each(function(i, val){
       $(val).text($.formatNumberToString(sellValue));
