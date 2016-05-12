@@ -451,7 +451,7 @@ $(function() {
   $.COLLAT_AMOUNT = 0.02;
   $.A2_COST = 250;
   $.UVHO_COST = 300;
-  $.C4C_COST = 100;
+  $.C4C_COST = 350;
   $.JITA_COST = 250;
   $.LOCAL_COST = 50;
   $.LOCAL_FADE_COST = 100;
