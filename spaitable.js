@@ -452,7 +452,7 @@ $(function() {
   $.A2_COST = 250;
   $.UVHO_COST = 300;
   $.C4C_COST = 100;
-  $.JITA_COST = 300;
+  $.JITA_COST = 250;
   $.LOCAL_COST = 50;
   $.LOCAL_FADE_COST = 100;
 
