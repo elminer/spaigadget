@@ -451,9 +451,8 @@ $(function() {
   $.COLLAT_AMOUNT = 0.02;
   $.A2_COST = 250;
   $.UVHO_COST = 300;
-  $.C4C_COST = 350;
-  $.JITA_COST = 250;
-  $.LOCAL_COST = 50;
+  $.C4C_COST = 400;
+  $.JITA_COST = 300;
   $.LOCAL_FADE_COST = 100;
 
   // Put the commas back when we click on something else
@@ -543,11 +542,7 @@ $(function() {
 
     $('#c4cNoCollatReward').text($.formatNumberToString(volume * $.C4C_COST));
     $('#c4cSellReward').text($.formatNumberToString(volume * $.C4C_COST + sellCollat));
-    $('#c4cBuyReward').text($.formatNumberToString(volume * $.C4C_COST + buyCollat));
-
-    $('#localNoCollatReward').text($.formatNumberToString(volume * $.LOCAL_COST));
-    $('#localSellReward').text($.formatNumberToString(volume * $.LOCAL_COST + sellCollat));
-    $('#localBuyReward').text($.formatNumberToString(volume * $.LOCAL_COST + buyCollat));
+    $('#c4cBuyReward').text($.formatNumberToString(volume * $.C4C_COST + buyCollat));    
 
     $('#jitaNoCollatReward').text($.formatNumberToString(volume * $.JITA_COST));
     $('#jitaSellReward').text($.formatNumberToString(volume * $.JITA_COST + sellCollat));
