@@ -449,8 +449,6 @@ $(function() {
     "Zephyr": 500
   };
   $.COLLAT_AMOUNT = 0.02;
-  $.A2_COST = 250;
-  $.UVHO_COST = 300;
   $.C4C_COST = 400;
   $.JITA_COST = 300;
   $.LOCAL_FADE_COST = 100;
@@ -531,14 +529,6 @@ $(function() {
     var volume = $.shipmentVolume();
     var sellCollat = sellValue * $.COLLAT_AMOUNT;
     var buyCollat = buyValue * $.COLLAT_AMOUNT;
-
-    $('#a2NoCollatReward').text($.formatNumberToString(volume * $.A2_COST));
-    $('#a2SellReward').text($.formatNumberToString(volume * $.A2_COST + sellCollat));
-    $('#a2BuyReward').text($.formatNumberToString(volume * $.A2_COST + buyCollat));
-
-    $('#uvhoNoCollatReward').text($.formatNumberToString(volume * $.UVHO_COST));
-    $('#uvhoSellReward').text($.formatNumberToString(volume * $.UVHO_COST + sellCollat));
-    $('#uvhoBuyReward').text($.formatNumberToString(volume * $.UVHO_COST + buyCollat));
 
     $('#c4cNoCollatReward').text($.formatNumberToString(volume * $.C4C_COST));
     $('#c4cSellReward').text($.formatNumberToString(volume * $.C4C_COST + sellCollat));
