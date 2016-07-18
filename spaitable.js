@@ -449,9 +449,8 @@ $(function() {
     "Zephyr": 500
   };
   $.COLLAT_AMOUNT = 0.02;
-  $.C4C_COST = 400;
   $.JITA_COST = 300;
-  $.LOCAL_FADE_COST = 100;
+  $.LOCAL_COST = 100;
 
   // Put the commas back when we click on something else
   $.formatNumber = function (str) { 
@@ -530,17 +529,26 @@ $(function() {
     var sellCollat = sellValue * $.COLLAT_AMOUNT;
     var buyCollat = buyValue * $.COLLAT_AMOUNT;
 
-    $('#c4cNoCollatReward').text($.formatNumberToString(volume * $.C4C_COST));
-    $('#c4cSellReward').text($.formatNumberToString(volume * $.C4C_COST + sellCollat));
-    $('#c4cBuyReward').text($.formatNumberToString(volume * $.C4C_COST + buyCollat));    
+    $('#jitaO1YNoCollatReward').text($.formatNumberToString(volume * $.JITA_COST));
+    $('#jitaO1YSellReward').text($.formatNumberToString(volume * $.JITA_COST + sellCollat));
+    $('#jitaO1YBuyReward').text($.formatNumberToString(volume * $.JITA_COST + buyCollat));
+    
+    $('#jitaFNMX6NoCollatReward').text($.formatNumberToString(volume * $.JITA_COST));
+    $('#jitaFNMX6SellReward').text($.formatNumberToString(volume * $.JITA_COST + sellCollat));
+    $('#jitaFNMX6BuyReward').text($.formatNumberToString(volume * $.JITA_COST + buyCollat));
 
-    $('#jitaNoCollatReward').text($.formatNumberToString(volume * $.JITA_COST));
-    $('#jitaSellReward').text($.formatNumberToString(volume * $.JITA_COST + sellCollat));
-    $('#jitaBuyReward').text($.formatNumberToString(volume * $.JITA_COST + buyCollat));
 
-    $('#localFadeNoCollatReward').text($.formatNumberToString(volume * $.LOCAL_FADE_COST));
-    $('#localFadeSellReward').text($.formatNumberToString(volume * $.LOCAL_FADE_COST + sellCollat));
-    $('#localFadeBuyReward').text($.formatNumberToString(volume * $.LOCAL_FADE_COST + buyCollat));
+    $('#local8QMOENoCollatReward').text($.formatNumberToString(volume * $.LOCAL_COST));
+    $('#local8QMOESellReward').text($.formatNumberToString(volume * $.LOCAL_COST + sellCollat));
+    $('#local8QMOEBuyReward').text($.formatNumberToString(volume * $.LOCAL_COST + buyCollat));
+    
+    $('#local0ARFONoCollatReward').text($.formatNumberToString(volume * $.LOCAL_COST));
+    $('#local0ARFOSellReward').text($.formatNumberToString(volume * $.LOCAL_COST + sellCollat));
+    $('#local0ARFOBuyReward').text($.formatNumberToString(volume * $.LOCAL_COST + buyCollat));
+    
+    $('#localFNMX6NoCollatReward').text($.formatNumberToString(volume * $.LOCAL_COST));
+    $('#localFNMX6SellReward').text($.formatNumberToString(volume * $.LOCAL_COST + sellCollat));
+    $('#localFNMX6BuyReward').text($.formatNumberToString(volume * $.LOCAL_COST + buyCollat));
 
     $('.sellAmount').each(function(i, val){
       $(val).text($.formatNumberToString(sellValue));
