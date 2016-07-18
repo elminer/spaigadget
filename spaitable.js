@@ -449,6 +449,7 @@ $(function() {
     "Zephyr": 500
   };
   $.COLLAT_AMOUNT = 0.02;
+  $.BUYBACK_AMOUNT = 0.9;
   $.JITA_COST = 300;
   $.LOCAL_COST = 100;
 
@@ -528,6 +529,7 @@ $(function() {
     var volume = $.shipmentVolume();
     var sellCollat = sellValue * $.COLLAT_AMOUNT;
     var buyCollat = buyValue * $.COLLAT_AMOUNT;
+    var customBuyBackPercentage = $("#customPercentage").val();
 
     $('#jitaO1YNoCollatReward').text($.formatNumberToString(volume * $.JITA_COST));
     $('#jitaO1YSellReward').text($.formatNumberToString(volume * $.JITA_COST + sellCollat));
@@ -549,6 +551,12 @@ $(function() {
     $('#localFNMX6NoCollatReward').text($.formatNumberToString(volume * $.LOCAL_COST));
     $('#localFNMX6SellReward').text($.formatNumberToString(volume * $.LOCAL_COST + sellCollat));
     $('#localFNMX6BuyReward').text($.formatNumberToString(volume * $.LOCAL_COST + buyCollat));
+    
+    $('#buyBackLink').text(window.location.href);
+    $('#buyBackAmt').text($.formatNumberToString($.BUYBACK_AMOUNT * buyValue));
+
+    $('#buyBackAmtCustomSell').text($.formatNumberToString((customBuyBackPercentage / 100) * sellValue));
+    $('#buyBackAmtCustomBuy').text($.formatNumberToString((customBuyBackPercentage / 100) * buyValue));
 
     $('.sellAmount').each(function(i, val){
       $(val).text($.formatNumberToString(sellValue));
@@ -558,6 +566,52 @@ $(function() {
       $(val).text($.formatNumberToString(buyValue));
     });
   }
+
+  $('.copyabletext').click(function() {
+    //$(this).text($(this).text());
+    var range, selection;
+
+    if (window.getSelection && document.createRange) {
+        selection = window.getSelection();
+        range = document.createRange();
+        range.selectNodeContents(this);
+        selection.removeAllRanges();
+        selection.addRange(range);
+    } else if (document.selection && document.body.createTextRange) {
+        range = document.body.createTextRange();
+        range.moveToElementText(this);
+        range.select();
+    }
+    var currentElement = this;
+  });
+  $('#customCalc').click(function() {
+    $.computeShippingCosts();
+  });
+  $('#customCalcRemember').click(function() {
+    $.setCustomBuyBackCookie();
+  });
+
+  $.setCustomBuyBackCookie = function() {
+    var d = new Date();
+    d.setFullYear(d.getFullYear() + 1);
+    var expires = "expires="+ d.toGMTString();
+    var customBuyBackPercentage = $("#customPercentage").val();
+    document.cookie = "customBuyBackPercentage=" + customBuyBackPercentage + "; " + expires;
+  };
+  $.getCustomBuyBackCookie = function() {
+    var name = "customBuyBackPercentage=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length,c.length);
+        }
+    }
+    return "";
+  };
 
   $('.copyable').click(function() {
     $(this).text(parseFloat($(this).text().replace(/,/g,'')));
@@ -581,6 +635,12 @@ $(function() {
       }
     });
   });
+
+  //see if we have a remembered custom buyback percentage
+  customBuyBackPercentage = $.getCustomBuyBackCookie();
+  if (customBuyBackPercentage != "") {
+    $("#customPercentage").val(customBuyBackPercentage);
+  }
 
   $('#package-toggle').click($.computePackagedVolumes);
   // Once everything is set up, we need to actually compute it.
