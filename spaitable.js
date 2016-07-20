@@ -448,10 +448,7 @@ $(function() {
     "Zealot": 10000,
     "Zephyr": 500
   };
-  $.COLLAT_AMOUNT = 0.02;
   $.BUYBACK_AMOUNT = 0.9;
-  $.JITA_COST = 300;
-  $.LOCAL_COST = 100;
 
   // Put the commas back when we click on something else
   $.formatNumber = function (str) { 
@@ -521,50 +518,47 @@ $(function() {
     //Recompute the costs
     $.computeShippingCosts();
   };
-
+  var routes = [];
   // Compute shipping costs based on the volume and pricing currently in the results
   $.computeShippingCosts = function() {
-    var sellValue = parseFloat($('th .nowrap:nth-child(1)').html().replace(/,/g,''));
-    var buyValue = parseFloat($('th :nth-child(3)').html().replace(/,/g,''));
-    var volume = $.shipmentVolume();
-    var sellCollat = sellValue * $.COLLAT_AMOUNT;
-    var buyCollat = buyValue * $.COLLAT_AMOUNT;
-    var customBuyBackPercentage = $("#customPercentage").val();
+    // clear the table to make sure we dont double insert the rows when handling packaged ships.
+    $("#routetable tbody").html("");
+    // get the routes
+    $.getJSON("https://rawgit.com/elminer/spaigadget/master/routes", function ( data ) {
+      var routes = data.routes;
 
-    $('#jitaO1YNoCollatReward').text($.formatNumberToString(volume * $.JITA_COST));
-    $('#jitaO1YSellReward').text($.formatNumberToString(volume * $.JITA_COST + sellCollat));
-    $('#jitaO1YBuyReward').text($.formatNumberToString(volume * $.JITA_COST + buyCollat));
-    
-    $('#jitaFNMX6NoCollatReward').text($.formatNumberToString(volume * $.JITA_COST));
-    $('#jitaFNMX6SellReward').text($.formatNumberToString(volume * $.JITA_COST + sellCollat));
-    $('#jitaFNMX6BuyReward').text($.formatNumberToString(volume * $.JITA_COST + buyCollat));
-
-
-    $('#local8QMOENoCollatReward').text($.formatNumberToString(volume * $.LOCAL_COST));
-    $('#local8QMOESellReward').text($.formatNumberToString(volume * $.LOCAL_COST + sellCollat));
-    $('#local8QMOEBuyReward').text($.formatNumberToString(volume * $.LOCAL_COST + buyCollat));
-    
-    $('#local0ARFONoCollatReward').text($.formatNumberToString(volume * $.LOCAL_COST));
-    $('#local0ARFOSellReward').text($.formatNumberToString(volume * $.LOCAL_COST + sellCollat));
-    $('#local0ARFOBuyReward').text($.formatNumberToString(volume * $.LOCAL_COST + buyCollat));
-    
-    $('#localFNMX6NoCollatReward').text($.formatNumberToString(volume * $.LOCAL_COST));
-    $('#localFNMX6SellReward').text($.formatNumberToString(volume * $.LOCAL_COST + sellCollat));
-    $('#localFNMX6BuyReward').text($.formatNumberToString(volume * $.LOCAL_COST + buyCollat));
-    
-    $('#buyBackLink').text(window.location.href);
-    $('#buyBackAmt').text($.formatNumberToString($.BUYBACK_AMOUNT * buyValue));
-
-    $('#buyBackAmtCustomSell').text($.formatNumberToString((customBuyBackPercentage / 100) * sellValue));
-    $('#buyBackAmtCustomBuy').text($.formatNumberToString((customBuyBackPercentage / 100) * buyValue));
-
-    $('.sellAmount').each(function(i, val){
-      $(val).text($.formatNumberToString(sellValue));
+      var sellValue = parseFloat($('th .nowrap:nth-child(1)').html().replace(/,/g,''));
+      var buyValue = parseFloat($('th :nth-child(3)').html().replace(/,/g,''));
+      var volume = $.shipmentVolume();
+      for (i = 0; i < routes.length; i++) {
+        var route = routes[i];
+        var sellCollat = sellValue * route.collateral;
+        var buyCollat = buyValue * route.collateral;
+        $("#routetable tbody").append('<tr><td><b>'+route.from+' &lt;&mdash;&gt; '+route.to+'</b> <span class="delivery">['+route.deliverytime+']</span><br/>('+route.m3+'/m<sup>3</sup> + '+route.collateral*100+'% Collateral)</td>' +
+          '<td><span class="copyable">'+$.formatNumberToString(volume * route.m3)+'</span></td> ' +
+          '<td><span class="copyable">'+$.formatNumberToString(volume * route.m3 + sellCollat)+'</span><br/><span class="sellAmount copyable"></span></td> ' +
+          '<td><span class="copyable">'+$.formatNumberToString(volume * route.m3 + buyCollat)+'</span><br/><span class="buyAmount copyable"></span></td> </tr>');
+      }
+      $('.sellAmount').each(function(i, val){
+        $(val).text($.formatNumberToString(sellValue));
+      });
+  
+      $('.buyAmount').each(function(i, val){
+        $(val).text($.formatNumberToString(buyValue));
+      });
+      // setup the onclick after the rows has been added.
+      $.setupcopyable();
     });
+  }
+  $.computeBuyBack = function() {
+      var sellValue = parseFloat($('th .nowrap:nth-child(1)').html().replace(/,/g,''));
+      var buyValue = parseFloat($('th :nth-child(3)').html().replace(/,/g,''));
+      var customBuyBackPercentage = $("#customPercentage").val();
+      $('#buyBackLink').text(window.location.href);
+      $('#buyBackAmt').text($.formatNumberToString($.BUYBACK_AMOUNT * buyValue));
 
-    $('.buyAmount').each(function(i, val){
-      $(val).text($.formatNumberToString(buyValue));
-    });
+      $('#buyBackAmtCustomSell').text($.formatNumberToString((customBuyBackPercentage / 100) * sellValue));
+      $('#buyBackAmtCustomBuy').text($.formatNumberToString((customBuyBackPercentage / 100) * buyValue));
   }
 
   $('.copyabletext').click(function() {
@@ -585,7 +579,7 @@ $(function() {
     var currentElement = this;
   });
   $('#customCalc').click(function() {
-    $.computeShippingCosts();
+    $.computeBuyBack();
   });
   $('#customCalcRemember').click(function() {
     $.setCustomBuyBackCookie();
@@ -612,30 +606,30 @@ $(function() {
     }
     return "";
   };
+  $.setupcopyable = function() {
+    $('.copyable').click(function() {
+      $(this).text(parseFloat($(this).text().replace(/,/g,'')));
+      var range, selection;
 
-  $('.copyable').click(function() {
-    $(this).text(parseFloat($(this).text().replace(/,/g,'')));
-    var range, selection;
-
-    if (window.getSelection && document.createRange) {
-        selection = window.getSelection();
-        range = document.createRange();
-        range.selectNodeContents(this);
-        selection.removeAllRanges();
-        selection.addRange(range);
-    } else if (document.selection && document.body.createTextRange) {
-        range = document.body.createTextRange();
-        range.moveToElementText(this);
-        range.select();
-    }
-    var currentElement = this;
-    $('.copyable').each(function(i, v){
-      if(v != currentElement) {
-        $(v).text($.formatNumber($(this).text()));
+      if (window.getSelection && document.createRange) {
+          selection = window.getSelection();
+          range = document.createRange();
+          range.selectNodeContents(this);
+          selection.removeAllRanges();
+          selection.addRange(range);
+      } else if (document.selection && document.body.createTextRange) {
+          range = document.body.createTextRange();
+          range.moveToElementText(this);
+          range.select();
       }
+      var currentElement = this;
+      $('.copyable').each(function(i, v){
+        if(v != currentElement) {
+          $(v).text($.formatNumber($(this).text()));
+        }
+      });
     });
-  });
-
+  };
   //see if we have a remembered custom buyback percentage
   customBuyBackPercentage = $.getCustomBuyBackCookie();
   if (customBuyBackPercentage != "") {
@@ -645,6 +639,8 @@ $(function() {
   $('#package-toggle').click($.computePackagedVolumes);
   // Once everything is set up, we need to actually compute it.
   $.computeShippingCosts();
+  // compute buyback
+  $.computeBuyBack();
 
   if($.isPackageableShips()) {
     $('#package-toggle').show();

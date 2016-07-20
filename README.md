@@ -15,6 +15,8 @@ javascript:(function(){$.get("https://rawgit.com/elminer/spaigadget/master/spait
 
 Use Evepraisal as normal: paste in your items and click submit. Once the results load, click on the bookmark you made.  A table will be added below the evepraisal results with pricing for SP.AI, including no-collateral, and with-collateral amounts for all three routes.  You can click on any of the pricing amounts to highlight them for easy copy-pasting.
 
+It also adds bayback prices from SP.AI and a custom percentage buyback calculator for convenience.
+
 ### Questions
 
 If you have any questions or suggestions you can convo or mail *Darvin Gack* in game.
