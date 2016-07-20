@@ -524,7 +524,7 @@ $(function() {
     // clear the table to make sure we dont double insert the rows when handling packaged ships.
     $("#routetable tbody").html("");
     // get the routes
-    $.getJSON("http://aio-it.dk/spaigadget/routes", function ( data ) {
+    $.getJSON("https://rawgit.com/elminer/spaigadget/master/routes", function ( data ) {
       var routes = data.routes;
 
       var sellValue = parseFloat($('th .nowrap:nth-child(1)').html().replace(/,/g,''));

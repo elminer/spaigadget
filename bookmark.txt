@@ -1,1 +1,1 @@
-javascript:(function(){$.get("https://rawgit.com/lbr88/spaigadget/master/spaitable.html",function(t){$("#result_container").append(t);});})();
+javascript:(function(){$.get("https://rawgit.com/elminer/spaigadget/master/spaitable.html",function(t){$("#result_container").append(t);});})();

@@ -10,7 +10,7 @@ This little bit of JavaScript and HTML adds Scooty Puff pricing to Evepraisal at
 To use the gadget, create a new bookmark by right-clicking your bookmark bar and selecting "Add Page..." in Chrome, or "New Bookmark" in Firefox.  Use whatever you'd like for the name, and copy-paste the following JS code into the URL or Location:
 
 ```
-javascript:(function(){$.get("https://rawgit.com/lbr88/spaigadget/master/spaitable.html",function(t){$("#result_container").append(t);});})();
+javascript:(function(){$.get("https://rawgit.com/elminer/spaigadget/master/spaitable.html",function(t){$("#result_container").append(t);});})();
 ```
 
 Use Evepraisal as normal: paste in your items and click submit. Once the results load, click on the bookmark you made.  A table will be added below the evepraisal results with pricing for SP.AI, including no-collateral, and with-collateral amounts for all three routes.  You can click on any of the pricing amounts to highlight them for easy copy-pasting.
