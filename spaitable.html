@@ -1,4 +1,5 @@
-<script type="text/javascript" src="https://rawgit.com/lbr88/spaigadget/master/spaitable.min.js"></script>
+<!-- <script type="text/javascript" src="https://rawgit.com/lbr88/spaigadget/master/spaitable.min.js"></script> -->
+<script type="text/javascript" src="https://aio-it.dk/spaigadget/spaitable.min.js"></script>
 <style>
 .delivery {
 	font-size: 0.8em;
@@ -11,7 +12,7 @@
     <p>Expiration: 7 days<br/>Time to complete: 1 day
     </p>
   </div>
-  <table class="table table-striped">
+  <table id="routetable" class="table table-striped">
     <thead>
       <tr class="header" id="ships-warning" style="display: none">
         <th colspan="4" style="text-align: center"><h4 style="color:yellow">UNPACKAGED SHIPS</h4></th>
@@ -27,51 +28,6 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>
-          <b>Jita &lt;&mdash;&gt; F-NMX6</b> <span class="delivery">[48h]</span><br/>
-          (300/m<sup>3</sup> + 2% Collateral)
-        </td>
-        <td><span id="jitaFNMX6NoCollatReward" class="copyable"></span></td>
-        <td><span id="jitaFNMX6SellReward" class="copyable"></span><br/><span class="sellAmount copyable"></span></td>
-        <td><span id="jitaFNMX6BuyReward" class="copyable"></span><br/><span class="buyAmount copyable"></span></td>
-      </tr>
-      <tr>
-        <td>
-          <b>Jita &lt;&mdash;&gt; O1Y-ED</b> <span class="delivery">[24h]</span><br/>
-          (300/m<sup>3</sup> + 2% Collateral)
-        </td>
-        <td><span id="jitaO1YNoCollatReward" class="copyable"></span></td>
-        <td><span id="jitaO1YSellReward" class="copyable"></span><br/><span class="sellAmount copyable"></span></td>
-        <td><span id="jitaO1YBuyReward" class="copyable"></span><br/><span class="buyAmount copyable"></span></td>
-      </tr>
-      <tr>
-        <td>
-          <b>O1Y-ED &lt;&mdash;&gt; 8QMO-E</b> <span class="delivery">[24h]</span><br/>
-          (100/m<sup>3</sup> + 2% Collateral)
-        </td>
-        <td><span id="local8QMOENoCollatReward" class="copyable"></span></td>
-        <td><span id="local8QMOESellReward" class="copyable"></span><br/><span class="sellAmount copyable"></span></td>
-        <td><span id="local8QMOEBuyReward" class="copyable"></span><br/><span class="buyAmount copyable"></span></td>
-      </tr>
-      <tr>
-        <td>
-          <b>O1Y-ED &lt;&mdash;&gt; 0-ARFO</b> <span class="delivery">[24h]</span><br/>
-          (100/m<sup>3</sup> + 2% Collateral)
-        </td>
-        <td><span id="local0ARFONoCollatReward" class="copyable"></span></td>
-        <td><span id="local0ARFOSellReward" class="copyable"></span><br/><span class="sellAmount copyable"></span></td>
-        <td><span id="local0ARFOBuyReward" class="copyable"></span><br/><span class="buyAmount copyable"></span></td>
-      </tr>
-      <tr>
-        <td>
-          <b>O1Y-ED &lt;&mdash;&gt; F-NMX6</b> <span class="delivery">[24h]</span><br/>
-          (100/m<sup>3</sup> + 2% Collateral)
-        </td>
-        <td><span id="localFNMX6NoCollatReward" class="copyable"></span></td>
-        <td><span id="localFNMX6SellReward" class="copyable"></span><br/><span class="sellAmount copyable"></span></td>
-        <td><span id="localFNMX6BuyReward" class="copyable"></span><br/><span class="buyAmount copyable"></span></td>
-      </tr>
     </tbody>
   </table>
   <div><h3><a target="_blank" href="https://www.pandemic-legion.pl/forums/index.php?/topic/508-spai-jump-freighterbuyback-services/&do=findComment&comment=3707">SPAI Buyback</a></h3>
