@@ -1,7 +1,8 @@
 {"routes":[
-  {"from":"Jita","to":"F-NMX6","m3":"300","collateral":"0.02","deliverytime":"48h"},
-  {"from":"Jita","to":"O1Y-ED","m3":"300","collateral":"0.02","deliverytime":"24h"},
-  {"from":"01Y","to":"8QMO-E","m3":"100","collateral":"0.02","deliverytime":"24h"},
-  {"from":"01Y","to":"0-ARFO","m3":"100","collateral":"0.02","deliverytime":"24h"},
-  {"from":"01Y","to":"F-NMX6","m3":"100","collateral":"0.02","deliverytime":"24h"}
+  {"from":"Jita","to":"F-NMX6","m3":"300","collateral":"0.02","deliverytime":"24h"},
+  {"from":"Jita","to":"8QMO-E","m3":"400","collateral":"0.02","deliverytime":"48h"},
+  {"from":"01Y","to":"8QMO-E","m3":"100","collateral":"0.02","deliverytime":"72h"},
+  {"from":"01Y","to":"0-ARFO","m3":"100","collateral":"0.02","deliverytime":"72h"},
+  {"from":"01Y","to":"F-NMX6","m3":"100","collateral":"0.02","deliverytime":"72h"}
 ]}
+
