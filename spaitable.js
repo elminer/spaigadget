@@ -382,6 +382,7 @@ $(function() {
     "Stabber Fleet Issue": 10000,
     "Stabber Krusual Edition": 10000,
     "Stabber Nefantar Edition": 10000,
+    "Station Container": 10000,
     "Stiletto": 2500,
     "Stork": 5000,
     "Stratios": 10000,
@@ -511,7 +512,7 @@ $(function() {
     var totalVolume = $.shipmentVolume() - totalunPackagedVolume + totalPackagedVolume;
     $('th :nth-child(5)').html($.formatNumberToString(totalVolume) + "m<sup>3</sup>");
     //Update the warning
-    $('#ships-warning h4').text("PACKAGED SHIPS");
+    $('#ships-warning h4').text("PACKAGED SHIPS/CONTAINERS");
     //Hide the button
     $('#package-toggle').hide();
 
