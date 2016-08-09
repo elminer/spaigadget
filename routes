@@ -1,8 +1,10 @@
 {"routes":[
-  {"from":"Jita","to":"F-NMX6","m3":"300","collateral":"0.02","deliverytime":"24h"},
-  {"from":"Jita","to":"8QMO-E","m3":"400","collateral":"0.02","deliverytime":"48h"},
-  {"from":"01Y","to":"8QMO-E","m3":"100","collateral":"0.02","deliverytime":"72h"},
-  {"from":"01Y","to":"0-ARFO","m3":"100","collateral":"0.02","deliverytime":"72h"},
-  {"from":"01Y","to":"F-NMX6","m3":"100","collateral":"0.02","deliverytime":"72h"}
+  {"from":"Jita 4-4","to":"7RM-N0","m3":"300","collateral":"0.02","deliverytime":"24h"},
+  {"from":"Jita 4-4","to":"GME-PQ","m3":"400","collateral":"0.02","deliverytime":"48h"},
+  {"from":"7RM-N0","to":"F-NMX6","m3":"100","collateral":"0.02","deliverytime":"72h"},
+  {"from":"GME-PQ","to":"8QMO-E","m3":"100","collateral":"0.02","deliverytime":"72h"},
+  {"from":"7RM-N0","to":"GME-PQ","m3":"100","collateral":"0.02","deliverytime":"72h"},
+  {"from":"O1Y-ED","to":"GME-PQ","m3":"100","collateral":"0.02","deliverytime":"72h"},
+  {"from":"O1Y-ED","to":"0-ARFO","m3":"100","collateral":"0.02","deliverytime":"72h"},
+  {"from":"O1Y-ED","to":"7RM-N0","m3":"100","collateral":"0.02","deliverytime":"72h"}
 ]}
-
