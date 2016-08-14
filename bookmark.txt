@@ -1,1 +1,1 @@
-javascript:(function(){$.get("http://aio-it.dk/spaigadget/spaitable.html",function(t){$("#result_container").append(t);});})();
+javascript:(function(){$.get("https://rawgit.com/elminer/spaigadget/master/spaitable.html",function(t){$("#result_container").append(t);});})();
