@@ -1,14 +1,25 @@
 <script type="text/javascript" src="https://rawgit.com/elminer/spaigadget/master/spaitable.min.js"></script>
+<style>
+.delivery {
+	font-size: 0.8em;
+	text-decoration: underline;
+}
+</style>
 <div>
-  <table class="table table-striped">
+  <div><h3><a target="_blank" href="https://www.pandemic-legion.pl/forums/index.php?/topic/508-spai-jump-freighterbuyback-services/&do=findComment&comment=3705">SPAI Shipping</a></h3>
+    <p>Contract To: <b class="copyabletext">Scooty Puff Advanced Industries</b></p>
+    <p>Expiration: 1 week<br/>Time to complete: 1 day
+    </p>
+  </div>
+  <table id="routetable" class="table table-striped">
     <thead>
       <tr class="header" id="ships-warning" style="display: none">
-        <th colspan="4" style="text-align: center"><h4 style="color:yellow">UNPACKAGED SHIPS</h4></th>
+        <th colspan="4" style="text-align: center"><h4 style="color:yellow">UNPACKAGED SHIPS/CONTAINERS</h4></th>
       </tr>
       <tr>
         <th class="header">
-          Route 
-          <button id="package-toggle" class="btn btn-small" style="display: none">Use Pkg'd Ship Volumes</button>
+          Route <span class="delivery">[delivery time]</span> 
+          <button id="package-toggle" class="btn btn-small" style="display: none">Use Pkg'd Ship/Container Volumes</button>
         </th>
         <th class="header">Reward<br/>No Collat.</th>
         <th class="header">Reward<br/>Sell Amt. Collat.</th>
@@ -16,33 +27,23 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>
-          <b>Jita &lt;&mdash;&gt; O1Y-ED</b><br/>
-          (300/m<sup>3</sup> + 2% Collateral)
-        </td>
-        <td><span id="jitaNoCollatReward" class="copyable"></span></td>
-        <td><span id="jitaSellReward" class="copyable"></span><br/><span class="sellAmount copyable"></span></td>
-        <td><span id="jitaBuyReward" class="copyable"></span><br/><span class="buyAmount copyable"></span></td>
-      </tr>
-      <tr>
-        <td>
-          <b>Jita &lt;&mdash;&gt; 8QMO-E</b><br/>
-          (400/m<sup>3</sup> + 2% Collateral)
-        </td>
-        <td><span id="c4cNoCollatReward" class="copyable"></span></td>
-        <td><span id="c4cSellReward" class="copyable"></span><br/><span class="sellAmount copyable"></span></td>
-        <td><span id="c4cBuyReward" class="copyable"></span><br/><span class="buyAmount copyable"></span></td>
-      </tr>
-      <tr>
-        <td>
-          <b>O1Y-ED &lt;&mdash;&gt; 8QMO-E</b><br/>
-          (100/m<sup>3</sup> + 2% Collateral)
-        </td>
-        <td><span id="localFadeNoCollatReward" class="copyable"></span></td>
-        <td><span id="localFadeSellReward" class="copyable"></span><br/><span class="sellAmount copyable"></span></td>
-        <td><span id="localFadeBuyReward" class="copyable"></span><br/><span class="buyAmount copyable"></span></td>
-      </tr>
     </tbody>
   </table>
+  <div><h3><a target="_blank" href="https://www.pandemic-legion.pl/forums/index.php?/topic/508-spai-jump-freighterbuyback-services/&do=findComment&comment=3707">SPAI Buyback</a></h3>
+    <p>Systems serviced: <b>O1Y-ED</b>, <b>7RM-N0 - B E A N S T A R</b>, <b>GME-PQ</b>.</p>
+    <p>Contract To: <b class="copyabletext">DJ Leadboy's Retirement Fund</b></p>
+    <p>Expiration: 3 days</p>
+    <p>Contract Comment: <span class="copyabletext" id="buyBackLink"></span></p>
+    <p>I Will Receive (90% of Buy Amt): <span class="copyable" id="buyBackAmt"></span></p>
+  </div>
+  <div><h3>Custom Buyback</a></h3>
+    <div>
+      <label for="customPercentage">Percentage:</label>
+      <input type="text" class="span1" id="customPercentage" name="customPercentage" value=95>
+      <input type="button" class="btn btn-primary" value="Calculate" id="customCalc">
+      <input type="button" class="btn btn-success" value="Remember" id="customCalcRemember">
+    </div>
+    <p>Based on Sell Amount: <span class="copyable" id="buyBackAmtCustomSell"></span></p>
+    <p>Based on Buy Amount: <span class="copyable" id="buyBackAmtCustomBuy"></span></p>
+  </div>
 </div>
